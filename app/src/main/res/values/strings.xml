@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">ProgressBar</string>
+    <string name="start">Start</string>
+    <string name="widget_progressbar_large_inverse">Widget.ProgressBar.Large.Inverse</string>
+    <string name="widget_progressbar_horizontal">Widget.ProgressBar.Horizontal</string>
+    <string name="widget_progressbar_inverse">Widget.ProgressBar.Inverse</string>
+    <string name="widget_progressbar_small">Widget.ProgressBar.Small</string>
+    <string name="widget_progressbar_large">Widget.ProgressBar.Large</string>
+    <string name="widget_progressbar_small_inverse">Widget.ProgressBar.Small.Inverse</string>
+</resources>
