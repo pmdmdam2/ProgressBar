@@ -4,4 +4,3 @@ Se trata de un ejemplo Android sobre el uso del widget ProgressBar. En la interf
 
 Las barras de progreso cuentan hasta 100 de 10 en 10, después se ocultan.
 
-![Interfaz del ejemplo de las barras de progreso](../master/app/src/main/assets/progressbar.png)
