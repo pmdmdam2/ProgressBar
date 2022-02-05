@@ -13,6 +13,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
     private LinkedList<ProgressBar> progressBar;
     private int progress;
+    private Thread thred;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,24 +21,16 @@ public class MainActivity extends AppCompatActivity {
 
         progressBar=new LinkedList<ProgressBar>();
 
-        final Thread thred = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                doWork();
-            }
-
-            @Override
-            protected void finalize() throws Throwable {
-                super.finalize();
-                for(int i=1;i<6;i++)
-                    progressBar.get(i).setVisibility(View.INVISIBLE);
-            }
-        });
-
         Button btStart = findViewById(R.id.btStart);
         btStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                MainActivity.this.thred = new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        doWork();
+                    }
+                });
                 for(int i=0;i<6;i++)
                     progressBar.get(i).setVisibility(View.VISIBLE);
                 thred.start();
@@ -64,6 +57,13 @@ public class MainActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
         }
-
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                progressBar.get(0).setProgress(0);
+                for(ProgressBar pb: progressBar)
+                    pb.setVisibility(View.INVISIBLE);
+            }
+        });
     }
 }
